@@ -15,7 +15,52 @@
 # и импортированные в данный файл из easy.py
 
 
+import easy
 
+while True:
+    print('_________________________________________________________')
+    print('1. Перейти в папку')
+    print('2. Просмотреть содержимое текущей папки')
+    print('3. Удалить папку')
+    print('4. Создать папку')
+    print('5. Выход')
+
+    errflag = False
+    menu = 0
+    try:
+        menu = int(input('Выберите действие:'))
+    except ValueError:
+        errflag = True
+
+    if errflag or not 1 <= menu <= 5:
+        print('Вы должны ввести число от 1 до 5')
+
+    if menu == 1:
+        dirname = input('Введите имя папки:')
+        try:
+            easy.change_directory(dirname)
+        except Exception as _:
+            print('Невозможно перейти в папку ' + dirname)
+
+    if menu == 2:
+        easy.list_directory()
+
+    if menu == 3:
+        dirname = input('Введите имя папки:')
+        try:
+            easy.remove_directory(dirname)
+        except Exception as _:
+            print('Невозможно удалить папку ' + dirname)
+
+    if menu == 4:
+        dirname = input('Введите имя папки:')
+        try:
+            easy.make_directory(dirname)
+        except Exception as _:
+            print('Невозможно создать папку ' + dirname)
+
+    if menu == 5:
+        break
 
 
 

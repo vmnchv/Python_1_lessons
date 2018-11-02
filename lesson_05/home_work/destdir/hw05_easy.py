@@ -39,7 +39,7 @@ if not os.path.exists(destdir):
 
 # с использованием системного shell'а
 os.system('copy %s %s' % (__file__,destdir))
-
+"""
 # другой вариант - с получением полного имени скрипта через sys.argv[0]
 os.system('copy %s %s' % (sys.argv[0],destdir))
 
@@ -48,3 +48,4 @@ dirname,filename = os.path.split(__file__)
 content = open(__file__).read()
 open(os.path.join(destdir,filename),'w').write(content)
 
+"""
